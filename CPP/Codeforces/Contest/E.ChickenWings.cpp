@@ -45,14 +45,16 @@ int CalculateMostExpensiveWing(int L, int R)
     return Price;
 }
 
-void  EatChickenWings(int L, int R){
-cout<<CalculateTotalWings(L,R)<<" "<<CalculateMostExpensiveWing(L,R)<<endl;
+void EatChickenWings(int L, int R)
+{
+    cout << CalculateTotalWings(L, R) << " " << CalculateMostExpensiveWing(L, R) << endl;
 }
 
-void Solve(){
-int L,R;
-cin>>L>>R;
-EatChickenWings(L,R);   
+void Solve()
+{
+    int L, R;
+    cin >> L >> R;
+    EatChickenWings(L, R);
 }
 
 int main()
