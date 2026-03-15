@@ -2,36 +2,41 @@
 
 using namespace std;
 
-long long sumBetween(long long A, long long B)
+long long SumBetween(long long A, long long B)
 {
-       
-    return abs((B*(B+1)/2) -(A*(A+1)/2)+A);
+    if (A > B)
+    {
+        long long temp = A;
+        A = B;
+        B = temp;
+    }
+
+    return (((B - A + 1) * (A + B)) / 2);
 }
-long long sumEven(long long A, long long B)
+long long SumEven(long long A, long long B)
 {
-    long long a = (A % 2 == 0) ? min(A,B) : min(A,B) + 1;
-    long long b = (B % 2 == 0) ? max(A,B) : max(A,B) - 1;
+    if (A > B)
+    {
+        long long temp = A;
+        A = B;
+        B = temp;
+    }
 
-
-
-    long long n = (b - a) / 2 + 1;
-    return abs(n * (a + b) / 2);
+    long long start = (A % 2 == 0) ? A : A + 1;
+    long long end = (B % 2 == 0) ? B : B - 1;
+    long long n = ((end - start) / 2) + 1;
+    return (n * (start + end) / 2);
 }
-long long sumOdd(long long A, long long B)
+long long SumOdd(long long A, long long B)
 {
-    long long a = (A % 2 == 1) ?min(A,B) : min(A,B) + 1;
-    long long b = (B % 2 == 1) ?  max(A,B) : max(A,B) - 1;
-
-
-    long long n = (b - a) / 2 + 1;
-    return n * (a + b) / 2;
+    return SumBetween(A, B) - SumEven(A, B);
 }
 
 int main()
 {
-long long L,R;
-cin>>L>>R;
-cout<<sumBetween(L,R)<<endl;
-cout<<sumEven(L,R)<<endl;
-cout<<sumOdd(L,R)<<endl;
+    long long A, B;
+    cin >> A >> B;
+    cout << SumBetween(A, B) << endl
+         << SumEven(A, B) << endl
+         << SumOdd(A, B) << endl;
 }

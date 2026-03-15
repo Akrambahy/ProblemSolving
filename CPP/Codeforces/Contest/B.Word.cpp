@@ -13,7 +13,7 @@ bool IsMoreLower(string S)
         else
             Uppers++;
     }
-    return Lowers > Uppers;
+    return Lowers >= Uppers;
 }
 
 string ToLower(string S)
