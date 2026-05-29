@@ -33,6 +33,7 @@ void GetMultiplicationMatrices(int matrixA[MAX][MAX], int rowsA, int colsA, int 
     {
         for (int j = 0; j < colsB; j++)
         {
+              matrixM[i][j] = 0;
             for (int k = 0; k < colsA; k++)
                 matrixM[i][j] += matrixA[i][k] * matrixB[k][j];
         }
