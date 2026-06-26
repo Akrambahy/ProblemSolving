@@ -3,9 +3,11 @@
 #define l long long
 using namespace std;
 l GetLast2Mul(l A,l B,l C ,l D){
-    l Mul=A%100*B%100*C%100*D%100;
-    if(Mul<10)cout<<0;
-    return Mul%100;
+    l Mul=A*B*C*D;
+    l Las2=(Mul%10);
+    Mul/=10;
+    l Las1=Mul%10;
+    return Las1*10 + Las2 ;
 }
 
 int main(){
